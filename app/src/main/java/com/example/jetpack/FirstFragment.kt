@@ -1,5 +1,6 @@
 package com.example.jetpack
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +28,11 @@ class FirstFragment : Fragment() {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
 
+        binding.textviewFirst.text = "변경될 텍스트"
+        binding.textviewFirst.setOnClickListener {
+            val intent = Intent(activity, SecondFragment::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
